@@ -1,0 +1,75 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IMC</title>
+    <script>
+      function click_calcular() {
+        let valorA = document.getElementById("ValorA").value;
+        let valorB = document.getElementById("ValorB").value;
+        if (valorA == "") {
+          alert("Informe o valor A");
+        } else if (valorB == "") {
+          alert("Informe o valor B");
+        } else {
+          let soma = Number(valorB) / Number(valorA) ** Number(valorA);
+          document.getElementById("Soma").value = soma;
+          if (soma < 18.5) {
+            document.getElementById("situacao").value = "magreza";
+            document.getElementById("situacao").style.backgroundColor = "red";
+          } else if (soma >= 18.5 && soma < 24.9) {
+            document.getElementById("situacao").value = "Normal";
+            document.getElementById("situacao").style.backgroundColor = "green";
+          } else if (soma >= 25 && soma < 29.9) {
+            document.getElementById("situacao").value = "Sobrepeso";
+            document.getElementById("situacao").style.backgroundColor =
+              "orange";
+          } else if (soma >= 30 && soma < 34.9) {
+            document.getElementById("situacao").value = "Obesidade grau I";
+            document.getElementById("situacao").style.backgroundColor = "red";
+          } else if ((soma >= 35 && soma < 39.9)) {
+            document.getElementById("situacao").value = "Obesidade grau II";
+            document.getElementById("situacao").style.backgroundColor = "red";
+          } else {
+            document.getElementById("situacao").value = "Obesidade grau III";
+            document.getElementById("situacao").style.backgroundColor = "black";
+            alert("você está se tornando a thais carla")
+          }
+        }
+      }
+
+      function click_limpar() {
+        document.getElementById("txtValorA").value = "";
+        document.getElementById("txtValorB").value = "";
+        document.getElementById("txtSoma").value = "";
+      }
+    </script>
+  </head>
+
+  <body>
+    <h1 id="tit">Calculadora de IMC</h1>
+    <form>
+      <div>
+        <label for="ValorA">Altura: </label>
+        <input type="number" name="" id="ValorA" value="1" />
+      </div>
+      <div>
+        <label for="ValorB">peso: </label>
+        <input type="number" name="" id="ValorB" />
+      </div>
+      <div>
+        <label for="Soma"> resultado: </label>
+        <input type="number" name="" id="Soma" disabled />
+      </div>
+      <div>
+        <label for="situacao">situação: </label>
+        <input type="text" name="" id="situacao" disabled />
+      </div>
+      <div>
+        <input type="button" value="Calcular" onclick="click_calcular();" />
+
+        <input type="button" value="Limpar" onclick="click_limpar();" />
+      </div>
+    </form>
+  </body>
+</html>
